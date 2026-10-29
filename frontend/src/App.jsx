@@ -31,7 +31,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-const API = "https://retail-demand-forcasting.onrender.com/api/summary";
+const API = "https://retail-demand-forcasting.onrender.com";
 const months = [
   "January",
   "February",

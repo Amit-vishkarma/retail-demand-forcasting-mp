@@ -21,7 +21,18 @@ LAGS = ["lag_1", "lag_7", "lag_14", "lag_28", "rolling_mean_7"]
 FEATURES = CAT + NUM + CAL + LAGS
 
 app = FastAPI(title="Retail Demand Forecasting API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://retail-demand-forecasting-frontend-r.vercel.app",
+        "https://retail-demand-forecasting-frontend-3.vercel.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ForecastRequest(BaseModel):
     store_id: str
