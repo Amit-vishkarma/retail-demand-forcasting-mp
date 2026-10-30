@@ -127,10 +127,9 @@ def make_pipeline():
     ])
 
     est = ExtraTreesRegressor(
-        n_estimators=300,
+        n_estimators=400,
         max_depth=20,
         min_samples_leaf=2,
-        max_features=0.8,
         random_state=42,
         n_jobs=1
     )
