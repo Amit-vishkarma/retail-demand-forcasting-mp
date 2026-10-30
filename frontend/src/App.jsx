@@ -31,7 +31,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-const API = "https://retail-demand-forcasting.onrender.com";
+const API = "http://127.0.0.1:8000";
 const months = [
   "January",
   "February",
@@ -110,7 +110,7 @@ export default function App() {
       setCategory((current) => current || o.data.categories[0] || "");
     } catch (err) {
       setError(
-        `Backend API se connect nahi ho pa raha. Backend start karein (${API}). ${err.response?.data?.detail || err.message}`,
+        `Backend is not connected (${API}). ${err.response?.data?.detail || err.message}`,
       );
     } finally {
       setLoading(false);
@@ -396,18 +396,36 @@ export default function App() {
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart
                           data={summary?.top_products || []}
-                          margin={{ bottom: 15 }}
+                          margin={{ top: 10, right: 10, bottom: 35, left: 10 }}
                         >
                           <CartesianGrid
                             strokeDasharray="3 3"
                             vertical={false}
                             stroke="#edf0f5"
                           />
-                          <XAxis dataKey="product_id" />
+
+                          <XAxis
+                            dataKey="product_name"
+                            interval={0}
+                            angle={-25}
+                            textAnchor="end"
+                            height={75}
+                            tick={{ fontSize: 11 }}
+                          />
+
                           <YAxis />
-                          <Tooltip />
+
+                          <Tooltip
+                            formatter={(value) => [
+                              money(value),
+                              "Total demand",
+                            ]}
+                            labelFormatter={(label) => `Product: ${label}`}
+                          />
+
                           <Bar
                             dataKey="demand"
+                            name="Total demand"
                             fill="#25a887"
                             radius={[5, 5, 0, 0]}
                           />
