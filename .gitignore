@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+.pkl
 .venv/
 venv/
 node_modules/
@@ -7,11 +8,3 @@ dist/
 .env
 backend/model_metrics.json
 backend/test_predictions.csv
-.env
-.env.
-.env.example
-.pkl
-.joblib
-/node_modules/
-venv/
-/__pycache__/
