@@ -83,8 +83,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "https://retail-demand-forecasting-frontend-r.vercel.app",
-        "https://retail-demand-forecasting-frontend-3.vercel.app",
+        "https://retail-demand-forcasting-mp.vercel.app",
+        "https://retail-demand-forcasting-mp-git-main-kamit77214-4076s-projects.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
